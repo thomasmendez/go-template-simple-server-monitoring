@@ -1,7 +1,5 @@
 # GoLang Gin Starter Project
 
-# React Starter Project
-
 Simple Gin Starter project with some industry standard tools setup
 
 ## Run Locally
@@ -21,9 +19,13 @@ Verify Go is installed by checking the Go version with `go version`
 This project uses the `Makefile` in order to easily run sets of commands. The commands can also be 
 runned invidually using the commands listed for the makefile command. 
 
-## Install Dependencies
+### Install Dependencies
 
 Run `make tidy` in order to run the Go commands needed to install releated dependencies properly.
+
+### Setup Environment Variables
+
+Create a `.env` file from the `.env.example` file and modify the environment variables as needed.
 
 ## Build
 
