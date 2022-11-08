@@ -16,5 +16,6 @@ build:
 		./cmd/simple-server
 
 docker: # @HELP build application and run in docker
+docker:
 	docker build --rm -t app .
 	docker-compose up --build
