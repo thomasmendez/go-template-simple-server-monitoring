@@ -32,8 +32,13 @@ To build the project for a production environment run `make build`
 
 ### Build and Deply with Docker
 
+*Note: Make sure [Docker](https://www.docker.com/) is running on your machine*
+
 The microservice can be build and deployed with Docker with `make docker`
-Stop the application with `ctrl+c` on the terminal
+
+API documentation can be viewed at [http://localhost:8081/api/swagger](http://localhost:8081/api/swagger)
+
+Application can stop running by pressing `ctrl+c` on the terminal
 
 ## Tests
 
@@ -59,7 +64,9 @@ To run the unit test for the project, run `make test`
 
 ### Swagger
 
-[Swagger](https://swagger.io/) is used as API documentation. Can be modified in the `swagger/swagger.yaml` file
+[Swagger](https://swagger.io/) is used as API documentation
+
+Can be modified in the `swagger/swagger.yaml` file
 
 ### Docker
 
