@@ -15,6 +15,11 @@ type Server struct {
 	Shutdown chan os.Signal
 }
 
+type HealthCheck struct {
+	Status string `json:"status,omitempty"`
+	Host   string `json:"host,omitempty"`
+}
+
 func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	s.Router.ServeHTTP(w, r)
 }
@@ -41,10 +46,7 @@ func (s *Server) HandleHealthCheck() gin.HandlerFunc {
 		if err != nil {
 			host = "unavailable"
 		}
-		data := struct {
-			Status string `json:"status,omitempty"`
-			Host   string `json:"host,omitempty"`
-		}{
+		data := HealthCheck{
 			Status: "up",
 			Host:   host,
 		}
