@@ -58,6 +58,10 @@ Assertion library. Can also be used for mocking and building testing suites.
 
 ## Tools Used
 
+### Swagger
+
+[Swagger](https://swagger.io/) API documentation. Can be modified in the `swagger/swagger.yaml` file.
+
 ### Docker
 
 [Docker](https://www.docker.com/) allows you to build and run this microservice
