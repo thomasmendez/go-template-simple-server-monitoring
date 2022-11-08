@@ -58,7 +58,9 @@ func (s *Server) SetRoutes() {
 
 	s.Router.Use(gin.Recovery())
 
-	v1 := s.Router.Group("/v1")
+	route := s.Router.Group("/api")
+
+	v1 := route.Group("/v1")
 	{
 		v1.GET("/health-check", s.HandleHealthCheck())
 	}

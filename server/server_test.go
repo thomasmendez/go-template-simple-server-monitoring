@@ -18,7 +18,7 @@ var (
 func TestHealthCheck(t *testing.T) {
 
 	// arrange
-	route := "/v1/health-test"
+	route := "/api/v1/health-test"
 	expectedStatusCode := http.StatusOK
 
 	srv := &Server{Log: mockLog}

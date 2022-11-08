@@ -8,7 +8,7 @@ externalDocs:
 servers:
   - url: http://localhost:8081
 paths:
-  /v1/health-check:
+  api/v1/health-check:
     get:
       summary: Server health check
       description: Returns a health check
