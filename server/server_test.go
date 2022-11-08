@@ -23,7 +23,7 @@ func TestHealthCheck(t *testing.T) {
 
 	srv := &Server{Log: mockLog}
 	r := gin.Default()
-	r.GET(route, srv.HandleHealthCheck())
+	r.GET(route, srv.healthCheck())
 
 	// act
 	req, _ := http.NewRequest("GET", route, nil)

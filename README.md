@@ -60,6 +60,10 @@ To run the unit test for the project, run `make test`
 
 [Testify](https://github.com/stretchr/testify) is an assertion library. Can also be used for mocking and building testing suites
 
+### Prometheus Client
+
+[Prometheus Go Client](github.com/prometheus/client_golang) is the Go client library for Prometheus. It is used to provide application metrics
+
 ## Tools Used
 
 ### Swagger
@@ -71,6 +75,10 @@ Can be modified in the `swagger/swagger.yaml` file
 ### Docker
 
 [Docker](https://www.docker.com/) allows you to build and run this microservice
+
+### Prometheus
+
+[Prometheus](https://prometheus.io/) provides metrics for the application
 
 ### Husky
 
