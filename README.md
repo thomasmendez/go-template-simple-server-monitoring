@@ -16,16 +16,15 @@ Verify Go is installed by checking the Go version with `go version`
 
 ### Install Makefile
 
-This project uses the `Makefile` in order to easily run sets of commands. The commands can also be 
-runned invidually using the commands listed for the makefile command. 
+This project uses the `Makefile` in order to easily run sets of commands. The commands can also be run invidually using the commands listed for the makefile command
 
 ### Install Dependencies
 
-Run `make tidy` in order to run the Go commands needed to install releated dependencies properly.
+Run `make tidy` in order to run the Go commands needed to install releated dependencies properly
 
 ### Setup Environment Variables
 
-Create a `.env` file from the `.env.example` file and modify the environment variables as needed.
+Create a `.env` file from the `.env.example` file and modify the environment variables as needed
 
 ## Build
 
@@ -46,21 +45,21 @@ To run the unit test for the project, run `make test`
 
 ### Gin
 
-High performance web framework in Golang.
+[Gin](https://github.com/gin-gonic/gin) is a high performance web framework in Golang
 
 ### Viper
 
-Highly flexible configuration library.
+[Viper](https://github.com/spf13/viper) is a highly flexible configuration library
 
 ### Testify
 
-Assertion library. Can also be used for mocking and building testing suites.
+[Testify](https://github.com/stretchr/testify) is an assertion library. Can also be used for mocking and building testing suites
 
 ## Tools Used
 
 ### Swagger
 
-[Swagger](https://swagger.io/) API documentation. Can be modified in the `swagger/swagger.yaml` file.
+[Swagger](https://swagger.io/) is used as API documentation. Can be modified in the `swagger/swagger.yaml` file
 
 ### Docker
 
