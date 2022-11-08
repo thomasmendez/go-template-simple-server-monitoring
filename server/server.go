@@ -65,6 +65,6 @@ func (s *Server) SetRoutes() {
 		v1.GET("/health-check", s.HandleHealthCheck())
 	}
 
-	s.Router.Static("/swagger", "./swagger")
+	route.Static("/swagger", "./swagger")
 
 }
