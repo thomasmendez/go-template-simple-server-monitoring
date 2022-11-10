@@ -84,6 +84,14 @@ Can be modified in the `swagger/swagger.yaml` file
 
 [Prometheus](https://prometheus.io/) provides metrics for the application
 
+#### Alertmanager
+
+[Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/) handles alerts sent by client applications such as the Prometheus server
+
+### Grafana
+
+[Grafana](https://grafana.com/oss/grafana/) allows you to query, visualize, and alert on and understand your metrics
+
 ### Husky
 
 [Husky](https://github.com/automation-co/husky) allows you to run scripts in the git lifecyle
