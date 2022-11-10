@@ -1,6 +1,6 @@
 # GoLang Gin Starter Project
 
-Simple Gin Starter project with some industry standard tools setup
+Simple Gin Starter project with some industry standard tools setup for production. Monitoring and alerting included
 
 ## Run Locally
 
