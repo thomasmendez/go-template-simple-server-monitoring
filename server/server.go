@@ -6,6 +6,7 @@ import (
 	"syscall"
 
 	"github.com/gin-gonic/gin"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"go.uber.org/zap"
 )
 
@@ -54,9 +55,19 @@ func (s *Server) healthCheck() gin.HandlerFunc {
 	}
 }
 
+func (s *Server) prometheus() gin.HandlerFunc {
+	h := promhttp.Handler()
+
+	return func(c *gin.Context) {
+		h.ServeHTTP(c.Writer, c.Request)
+	}
+}
+
 func (s *Server) SetRoutes() {
 
 	s.Router.Use(gin.Recovery())
+
+	s.Router.GET("/metrics", s.prometheus())
 
 	route := s.Router.Group("/api")
 

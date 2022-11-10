@@ -1,6 +1,6 @@
 # GoLang Gin Starter Project
 
-Simple Gin Starter project with some industry standard tools setup
+Simple Gin Starter project with some industry standard tools setup for production. Monitoring and alerting included
 
 ## Run Locally
 
@@ -34,9 +34,12 @@ To build the project run `make build`
 
 *Note: Make sure [Docker](https://www.docker.com/) is running on your machine*
 
-The microservice can be build and deployed with `make docker`
+The microservice and monitoring applications can be build and deployed with `make docker`
 
-API documentation can be viewed at [http://localhost:8081/api/swagger](http://localhost:8081/api/swagger)
+* API documentation can be viewed at [http://localhost:8081/api/swagger](http://localhost:8081/api/swagger)
+* Prometheus can be accessed at [http://localhost:9090](http://localhost:9090)
+* Alertmanager can be accessed at [http://localhost:9093](http://localhost:9093)
+* Grafana dashboard can be accessed at [http://localhost:3000](http://localhost:3000) with username and password set as `admin` by default
 
 Application can stop running by pressing `ctrl+c` on the terminal
 
@@ -64,6 +67,10 @@ To run the unit test for the project, run `make test`
 
 [Testify](https://github.com/stretchr/testify) is an assertion library. Can also be used for mocking and building testing suites
 
+### Prometheus Client
+
+[Prometheus Go Client](github.com/prometheus/client_golang) is the Go client library for Prometheus. It is used to provide application metrics
+
 ## Tools Used
 
 ### Swagger
@@ -75,6 +82,18 @@ Can be modified in the `swagger/swagger.yaml` file
 ### Docker
 
 [Docker](https://www.docker.com/) allows you to build and run this microservice
+
+### Prometheus
+
+[Prometheus](https://prometheus.io/) provides metrics for the application
+
+#### Alertmanager
+
+[Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/) handles alerts sent by client applications such as the Prometheus server
+
+### Grafana
+
+[Grafana](https://grafana.com/oss/grafana/) allows you to query, visualize, and alert on and understand your metrics
 
 ### Husky
 
