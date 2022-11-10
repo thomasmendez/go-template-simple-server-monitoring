@@ -34,9 +34,12 @@ To build the project run `make build`
 
 *Note: Make sure [Docker](https://www.docker.com/) is running on your machine*
 
-The microservice can be build and deployed with Docker with `make docker`
+The microservice and monitoring applications can be build and deployed with `make docker`
 
-API documentation can be viewed at [http://localhost:8081/api/swagger](http://localhost:8081/api/swagger)
+* API documentation can be viewed at [http://localhost:8081/api/swagger](http://localhost:8081/api/swagger)
+* Prometheus can be accessed at [http://localhost:9090](http://localhost:9090)
+* Alertmanager can be accessed at [http://localhost:9093](http://localhost:9093)
+* Grafana dashboard can be accessed at [http://localhost:3000](http://localhost:3000) with username and password set as `admin` by default
 
 Application can stop running by pressing `ctrl+c` on the terminal
 
