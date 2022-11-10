@@ -28,7 +28,7 @@ Create a `.env` file from the `.env.example` file and modify the environment var
 
 ## Build
 
-To build the project for a production environment run `make build`
+To build the project run `make build`
 
 ### Build and Deply with Docker
 
