@@ -10,15 +10,12 @@ import (
 	"syscall"
 	"time"
 
-	"simple-server/server"
-	"simple-server/util"
-
 	"github.com/gin-gonic/gin"
-)
+	"go.uber.org/zap"
 
-func init() {
-	log.SetOutput(os.Stdout)
-}
+	"simple-server/server"
+	"simple-server/utils"
+)
 
 func main() {
 
@@ -27,22 +24,26 @@ func main() {
 		"SIMPLE_SERVICE: ",
 		log.LstdFlags|log.Lmicroseconds|log.Lshortfile,
 	)
-	if err := run(log); err != nil {
-		log.Println("main: error: ", err)
-		os.Exit(1)
+
+	logZap := utils.DevelopmentLogger()
+
+	if err := run(log, logZap); err != nil {
+		logZap.Fatal(err.Error())
 	}
 
 }
 
-func run(log *log.Logger) error {
+func run(log *log.Logger, logZap *zap.Logger) error {
 
-	// Configurations
-	config, err := util.LoadConfig("./")
+	config, err := utils.LoadConfig("./")
 	if err != nil {
-		log.Fatal("cannot load config:", err)
+		return fmt.Errorf("cannot load config: %v", err)
 	}
 
-	// Start Service
+	if config.Environment == "production" {
+		logZap = utils.ProductionLogger()
+	}
+
 	shutdown := make(chan os.Signal, 1)
 	signal.Notify(shutdown, syscall.SIGINT, syscall.SIGTERM)
 
@@ -51,10 +52,10 @@ func run(log *log.Logger) error {
 	}
 
 	router := gin.Default()
-	srv := server.NewServer(router, log, shutdown)
+	srv := server.NewServer(router, logZap, shutdown)
 	srv.SetRoutes()
 
-	log.Printf("Starting server on %s", config.ServerAddress)
+	logZap.Sugar().Infof("Starting server on %s", config.ServerAddress)
 	api := http.Server{
 		Addr:     config.ServerAddress,
 		Handler:  srv,
@@ -73,10 +74,11 @@ func run(log *log.Logger) error {
 	// Blocking main and waiting for shutdown
 	select {
 	case err := <-serverErrors:
+
 		return fmt.Errorf("server error: %w", err)
+
 	case sig := <-shutdown:
-		log.Printf("shutdown started with sig: %v", sig)
-		defer log.Println()
+		logZap.Sugar().Infof("shutdown started with sig: %v", sig)
 
 		// Give outstanding requests a deadline for completion.
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
