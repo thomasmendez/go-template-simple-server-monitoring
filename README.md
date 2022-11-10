@@ -56,6 +56,10 @@ To run the unit test for the project, run `make test`
 
 [Viper](https://github.com/spf13/viper) is a highly flexible configuration library
 
+### Zap
+
+[Zap](https://github.com/uber-go/zap) fast, structured, leveled logging in Golang
+
 ### Testify
 
 [Testify](https://github.com/stretchr/testify) is an assertion library. Can also be used for mocking and building testing suites
