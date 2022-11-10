@@ -40,7 +40,7 @@ func (s *Server) SignalShutdown() {
 	s.Shutdown <- syscall.SIGTERM
 }
 
-func (s *Server) HandleHealthCheck() gin.HandlerFunc {
+func (s *Server) healthCheck() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		host, err := os.Hostname()
 		if err != nil {
@@ -62,7 +62,7 @@ func (s *Server) SetRoutes() {
 
 	v1 := route.Group("/v1")
 	{
-		v1.GET("/health-check", s.HandleHealthCheck())
+		v1.GET("/health-check", s.healthCheck())
 	}
 
 	route.Static("/swagger", "./swagger")
