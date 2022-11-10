@@ -1,0 +1,32 @@
+openapi: 3.0.3
+info:
+  title: Swagger Simple - OpenAPI 3.0
+  description: This is a simple server based on the OpenAPI 3.0 specification. You can find out more about Swagger at [https://swagger.io](https://swagger.io)
+externalDocs:
+  description: Find out more about Swagger
+  url: http://swagger.io
+servers:
+  - url: http://localhost:8081
+paths:
+  api/v1/health-check:
+    get:
+      summary: Server health check
+      description: Returns a health check
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthCheck'
+components:
+  schemas:
+    HealthCheck:
+      type: object
+      properties:
+        status:
+          type: string
+          example: up
+        host:
+          type: string
+          example: fe7518bcd1f7
