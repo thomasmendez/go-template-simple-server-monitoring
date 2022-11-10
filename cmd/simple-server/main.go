@@ -78,8 +78,6 @@ func run(log *log.Logger, logZap *zap.Logger) error {
 		return fmt.Errorf("server error: %w", err)
 
 	case sig := <-shutdown:
-		// log.Printf("shutdown started with sig: %v", sig)
-		// defer log.Println()
 		logZap.Sugar().Infof("shutdown started with sig: %v", sig)
 
 		// Give outstanding requests a deadline for completion.
