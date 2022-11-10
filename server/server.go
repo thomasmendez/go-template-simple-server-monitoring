@@ -62,11 +62,7 @@ func (s *Server) SetRoutes() {
 
 	v1 := route.Group("/v1")
 	{
-<<<<<<< HEAD
-		v1.GET("/health-check", s.HandleHealthCheck())
-=======
 		v1.GET("/health-check", s.healthCheck())
->>>>>>> template/main
 	}
 
 	route.Static("/swagger", "./swagger")
