@@ -28,7 +28,7 @@ Create a `.env` file from the `.env.example` file and modify the environment var
 
 ## Build
 
-To build the project for a production environment run `make build`
+To build the project run `make build`
 
 ### Build and Deply with Docker
 
@@ -55,6 +55,10 @@ To run the unit test for the project, run `make test`
 ### Viper
 
 [Viper](https://github.com/spf13/viper) is a highly flexible configuration library
+
+### Zap
+
+[Zap](https://github.com/uber-go/zap) fast, structured, leveled logging in Golang
 
 ### Testify
 

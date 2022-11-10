@@ -1,17 +1,17 @@
 package server
 
 import (
-	"log"
 	"net/http"
 	"os"
 	"syscall"
 
 	"github.com/gin-gonic/gin"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"go.uber.org/zap"
 )
 
 type Server struct {
-	Log      *log.Logger
+	Log      *zap.Logger
 	Router   *gin.Engine
 	Shutdown chan os.Signal
 }
@@ -25,7 +25,7 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	s.Router.ServeHTTP(w, r)
 }
 
-func NewServer(router *gin.Engine, log *log.Logger, shutdown chan os.Signal) *Server {
+func NewServer(router *gin.Engine, log *zap.Logger, shutdown chan os.Signal) *Server {
 	return &Server{
 		Router:   router,
 		Log:      log,

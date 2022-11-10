@@ -1,19 +1,19 @@
 package server
 
 import (
-	"io/ioutil"
-	"log"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
+	"go.uber.org/zap"
+	"go.uber.org/zap/zaptest"
 )
 
-var (
-	mockLog = log.New(ioutil.Discard, "", 0)
-)
+func mockZap(t *testing.T) *zap.Logger {
+	return zaptest.NewLogger(t)
+}
 
 func TestHealthCheck(t *testing.T) {
 
@@ -21,7 +21,7 @@ func TestHealthCheck(t *testing.T) {
 	route := "/api/v1/health-test"
 	expectedStatusCode := http.StatusOK
 
-	srv := &Server{Log: mockLog}
+	srv := &Server{Log: mockZap(t)}
 	r := gin.Default()
 	r.GET(route, srv.healthCheck())
 
