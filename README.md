@@ -1,6 +1,6 @@
 # GoLang Gin Starter Project
 
-Simple Gin Starter project with some industry standard tools setup for production. Monitoring and alerting included
+Simple Gin Starter project with some industry standard tools setup for production. Monitoring and alerting included. Derived from [go-template-simple-server](https://github.com/thomasmendez/go-template-simple-server.git) (use this if you do not wish to use the monitoring tools in this repo)
 
 ## Run Locally
 
