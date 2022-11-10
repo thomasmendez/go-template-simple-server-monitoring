@@ -34,7 +34,7 @@ To build the project run `make build`
 
 *Note: Make sure [Docker](https://www.docker.com/) is running on your machine*
 
-The microservice can be build and deployed with Docker with `make docker`
+The microservice can be build and deployed with `make docker`
 
 API documentation can be viewed at [http://localhost:8081/api/swagger](http://localhost:8081/api/swagger)
 
