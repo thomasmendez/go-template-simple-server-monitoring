@@ -3,6 +3,7 @@ module simple-server
 go 1.19
 
 require (
+	github.com/gin-contrib/zap v0.1.0
 	github.com/gin-gonic/gin v1.8.1
 	github.com/prometheus/client_golang v1.13.1
 	github.com/spf13/viper v1.13.0
@@ -43,6 +44,8 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/subosito/gotenv v1.4.1 // indirect
 	github.com/ugorji/go/codec v1.2.7 // indirect
+	go.opentelemetry.io/otel v1.10.0 // indirect
+	go.opentelemetry.io/otel/trace v1.10.0 // indirect
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	golang.org/x/crypto v0.0.0-20220411220226-7b82a4e95df4 // indirect

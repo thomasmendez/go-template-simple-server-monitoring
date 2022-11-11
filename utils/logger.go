@@ -15,8 +15,8 @@ func DevelopmentLogger() (logger *zap.Logger) {
 	cfg := zap.Config{
 		Encoding:         "json",
 		Level:            zap.NewAtomicLevelAt(zapcore.DebugLevel),
-		OutputPaths:      []string{"stderr"},
-		ErrorOutputPaths: []string{"stderr"},
+		OutputPaths:      []string{"stdout"},
+		ErrorOutputPaths: []string{"stdout"},
 		EncoderConfig: zapcore.EncoderConfig{
 			MessageKey: "message",
 
@@ -42,8 +42,8 @@ func ProductionLogger() (logger *zap.Logger) {
 	cfg := zap.Config{
 		Encoding:         "json",
 		Level:            zap.NewAtomicLevelAt(zapcore.ErrorLevel),
-		OutputPaths:      []string{"stderr"},
-		ErrorOutputPaths: []string{"stderr"},
+		OutputPaths:      []string{"stdout"},
+		ErrorOutputPaths: []string{"stdout"},
 		EncoderConfig: zapcore.EncoderConfig{
 			MessageKey: "message",
 

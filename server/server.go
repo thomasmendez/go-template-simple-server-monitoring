@@ -5,6 +5,9 @@ import (
 	"os"
 	"syscall"
 
+	"time"
+
+	ginzap "github.com/gin-contrib/zap"
 	"github.com/gin-gonic/gin"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"go.uber.org/zap"
@@ -26,6 +29,8 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 }
 
 func NewServer(router *gin.Engine, log *zap.Logger, shutdown chan os.Signal) *Server {
+	router.Use(ginzap.RecoveryWithZap(log, true))
+	router.Use(ginzap.Ginzap(log, time.RFC3339, true))
 	return &Server{
 		Router:   router,
 		Log:      log,
@@ -64,8 +69,6 @@ func (s *Server) prometheus() gin.HandlerFunc {
 }
 
 func (s *Server) SetRoutes() {
-
-	s.Router.Use(gin.Recovery())
 
 	s.Router.GET("/metrics", s.prometheus())
 
