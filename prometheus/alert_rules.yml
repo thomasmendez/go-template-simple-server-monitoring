@@ -1,5 +1,5 @@
 groups:
-  - name: DemoAlerts
+  - name: Alerts
     rules:
       - alert: InstanceDown 
         expr: up{job="services"} < 1 
